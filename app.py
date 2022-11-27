@@ -1,6 +1,6 @@
 import streamlit as st
 import re
-from keras import load_model
+from tensorflow.keras.models import load_model
 from keras.preprocessing.sequence import pad_sequences
 import pickle as pkl
 
@@ -19,7 +19,7 @@ def preprocess_text(sen):
 
     return sentence
 
-model = load_model.load('model.h5')
+model = load_model('new_model.h5')
 tokenizer = pkl.load(open('tokenizer.pkl', 'rb'))
 
 def tokenize(text):
