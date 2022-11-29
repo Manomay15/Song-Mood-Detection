@@ -23,18 +23,14 @@ model = pkl.load(open("model.pkl", "rb"))
 
 tokenizer = pkl.load(open('tokenizer.pkl', 'rb'))
 
-def tokenize(text):
-   tokens = tokenizer.texts_to_sequences(text)
-   arr = pad_sequences(tokens, padding='post', maxlen=200)
-   return arr
+x = []
+sentences = list([message_text])
+for sen in sentences:
+    x.append(preprocess_text(sen))
+x = tokenizer.texts_to_sequences(x)
+x = pad_sequences(x, padding='post', maxlen=200)
 
-def classify_message(model, message):
-  labels = model.predict(tokenize(message))
-  # value = labels.index(max(labels))
-#   spam_prob = model.predict_proba([message])
-  preds = ['Depressed', 'Sad', 'Happy', 'Cheerful']
-  return preds[int(labels[0])]
+labels = ['Depressed', 'Sad', 'Happy', 'Cheerful']
 
 if message_text != '':
-  result = classify_message(model, message_text)
-  st.write(result)
+  st.write(labels[model.predict(x)[0]])
