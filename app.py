@@ -2,6 +2,7 @@ import streamlit as st
 import re
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import pickle as pkl
+import sklearn
 
 st.write("Music mood classifier")
 message_text = st.text_input("Enter the lyrics of your song: ")
