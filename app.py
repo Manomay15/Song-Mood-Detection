@@ -4,8 +4,8 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 import pickle as pkl
 import sklearn
 
-st.write("Music mood classifier")
-message_text = st.text_input("Enter the lyrics of your song: ")
+st.write("Check the vibe of your song!")
+message_text = st.text_input("Enter the lyrics: ")
 
 def preprocess_text(sen):
     # Remove punctuations and numbers
