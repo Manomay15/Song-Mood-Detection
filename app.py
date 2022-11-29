@@ -30,7 +30,7 @@ for sen in sentences:
 x = tokenizer.texts_to_sequences(x)
 x = pad_sequences(x, padding='post', maxlen=200)
 
-labels = ['Depressed', 'Sad', 'Happy', 'Cheerful']
+labels = ['Depressing', 'Sad', 'Happy', 'Cheerful']
 
 if message_text != '':
   st.write(labels[model.predict(x)[0]])
