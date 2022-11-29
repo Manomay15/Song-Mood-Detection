@@ -1,6 +1,6 @@
 import streamlit as st
 import re
-from keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 import pickle as pkl
 
 st.write("Music mood classifier")
