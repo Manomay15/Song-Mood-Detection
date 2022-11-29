@@ -3,6 +3,7 @@ import re
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import pickle as pkl
 import sklearn
+import xgboost
 
 st.write("Check the vibe of your song!")
 message_text = st.text_input("Enter the lyrics: ")
@@ -19,7 +20,7 @@ def preprocess_text(sen):
 
     return sentence
 
-model = pkl.load(open("model.pkl", "rb"))
+model = pkl.load(open("xgboost.pkl", "rb"))
 
 tokenizer = pkl.load(open('tokenizer.pkl', 'rb'))
 
