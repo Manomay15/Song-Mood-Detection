@@ -20,8 +20,8 @@ def preprocess_text(sen):
 
     return sentence
 
-model = pkl.load(open("xgboost.pkl", "rb"))
-valence_model = pkl.load(open("dvalence.pkl", "rb"))
+# model = pkl.load(open("xgboost.pkl", "rb"))
+valence_model = pkl.load(open("xgvalence.pkl", "rb"))
 tokenizer = pkl.load(open('tokenizer.pkl', 'rb'))
 
 x = []
@@ -29,7 +29,7 @@ sentences = list([message_text])
 for sen in sentences:
     x.append(preprocess_text(sen))
 x = tokenizer.texts_to_sequences(x)
-x = pad_sequences(x, padding='post', maxlen=200)
+x = pad_sequences(x, padding='post', maxlen=500)
 
 labels = ['depressing', 'sad', 'happy', 'cheerful']
 
